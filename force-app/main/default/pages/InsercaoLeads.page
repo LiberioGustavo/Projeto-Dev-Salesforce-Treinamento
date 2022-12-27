@@ -1,0 +1,146 @@
+<apex:page standardController="Case" recordSetVar="cases" tabstyle="case">
+    <style src="text/css">
+    	.fsWrapper{
+
+            width: 960px;
+            
+            margin: 0 auto;
+            
+            }
+            
+            .headerTitle{
+            
+            font-family: arial, sans-serif;
+            
+            font-size: 16px;
+            
+            font-weight: 600;
+            
+            color: #fff!important;
+            
+            text-align: left;
+            
+            text-transform: uppercase;
+            
+            background: #4e75a3;
+            
+            display: block;
+            
+            padding: 10px;
+            
+            margin:0;
+            
+            }
+            
+            .dataTable table{
+            
+            width: 100%;
+            
+            font-family: arial, sans-serif;
+            
+            border: solid 1px #E0E3E5;
+            
+            border-collapse: collapse;
+            
+            }
+            
+            .dataTable  th{
+            
+            background: #999999;
+            
+            border-top: solid 1px #E0E3E5;
+            
+            border-right: solid 1px #E0E3E5;
+            
+            color: #fff;
+            
+            font-size: 0.8em;
+            
+            font-weight: normal;
+            
+            padding: 11px 2px 10px 5px;
+            
+            }
+            
+            .dataTable td {
+            
+            border-top: solid 1px #E0E3E5;
+            
+            border-right: solid 1px #E0E3E5;
+            
+            color: #797979;
+            
+            font-size: 13px;
+            
+            padding: 5px 2px 5px 5px;
+            
+            }
+            
+            .actionBtnWrapper {
+            
+            float: right;
+            
+            margin-top: 10px;
+            
+            margin-left: 10px;
+            
+            }
+            
+            .actionBtnWrapper .btn{
+            
+            padding: 5px 10px;
+            
+            background: #0b51a3;
+            
+            color: #fff;
+            
+            font-size: 13px;
+            
+            font-weight: 600;
+            
+            font-family: arial, sans-serif;
+            
+            text-align: center;
+            
+            text-decoration: none;
+            
+            border: none;
+            
+            border-radius: 0;
+            
+            transition: 0.5s ease-in-out;
+            
+            cursor: pointer;
+            
+            }
+            
+            .actionBtnWrapper .btn:hover{
+            
+            color: #fff;
+            
+            text-decoration: none;
+            
+            background: #074894;
+
+}
+    </style>
+    <apex:form id="changeStatusForm">
+        <apex:pageBlock >
+        <apex:pageMessages />
+        <apex:pageBlockButtons >
+            <apex:commandButton value="Salvar" action="{!save}"/>
+        </apex:pageBlockButtons>
+        <apex:pageBlockTable value="{!cases}" var="c">
+            <apex:column value="{!c.casenumber}"/>
+            <apex:column value="{!c.account.name}"/>
+            <apex:column value="{!c.contact.name}"/>
+            <apex:column headerValue="lista">
+            	<apex:inputField value="{!c.subject}"/>
+            </apex:column>
+            <apex:column headerValue="Status">
+                <apex:inputField value="{!c.Status}"/>
+            </apex:column>
+        </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>
