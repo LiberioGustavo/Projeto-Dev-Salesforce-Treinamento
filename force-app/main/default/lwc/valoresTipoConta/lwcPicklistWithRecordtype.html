@@ -1,0 +1,9 @@
+<template>
+    <div class="slds-box">
+        <template if:true={Type.data}>
+            <lightning-combobox name="progress" label="Accoun Type" value={value} 
+                options={Type.data.values} onchange={handleChange}>
+            </lightning-combobox>
+        </template>
+    </div>
+</template>
